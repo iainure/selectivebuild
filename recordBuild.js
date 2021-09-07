@@ -6,7 +6,7 @@ const git = simpleGit()
 const go = async () => {
 
 	let result = await git.log({
-		file: 'appone'
+		file: '.'
 	})
 	
 	console.log(result)
