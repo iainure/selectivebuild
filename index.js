@@ -6,9 +6,9 @@ const git = simpleGit()
 const go = async () => {
 
 	let result = await git.log({
-		file: 'README.md'
+		file: 'appone'
 	})
-	console.log(result.latest.hash)
+	
 	console.log(result)
 
 }
