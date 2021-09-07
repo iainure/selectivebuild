@@ -1,0 +1,22 @@
+{
+  "name": "selectivebuild",
+  "version": "1.0.0",
+  "description": "Building only sub-apps that haven't been built since latest git pull",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iainure/selectivebuild.git"
+  },
+  "author": "Iain Ure",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iainure/selectivebuild/issues"
+  },
+  "homepage": "https://github.com/iainure/selectivebuild#readme",
+  "dependencies": {
+    "simple-git": "^2.45.1"
+  }
+}
