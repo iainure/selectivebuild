@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+	"prebuild": "node ../buildscripts/preBuild.js",
+    "serve": "vite preview",
+	"postbuild": "node ../buildscripts/postBuild.js"
   },
   "dependencies": {
     "vue": "^3.2.6"
