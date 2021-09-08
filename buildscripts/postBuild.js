@@ -25,6 +25,8 @@ const go = async () => {
 		if(result && result.latest){
 			await fs.writeFile('.lastbuilt', result.latest.hash) // creates / overwrites
 			console.log(`.lastbuilt written with ${result.latest.hash}`)
+		}else{
+			console.log(`.lastbuilt not created: commit app to git`)
 		}
 
 	}

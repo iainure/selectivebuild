@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/iainure/selectivebuild#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
+    "cross-spawn": "^7.0.3",
     "simple-git": "^2.45.1"
   }
 }

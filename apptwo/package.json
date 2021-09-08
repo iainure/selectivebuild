@@ -1,5 +1,5 @@
 {
-  "name": "appone",
+  "name": "apptwo",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -7,7 +7,6 @@
 	"prebuild": "node ../buildscripts/preBuild.js",
 	"postbuild": "node ../buildscripts/postBuild.js",
     "serve": "vite preview"
-	
   },
   "dependencies": {
     "vue": "^3.2.6"

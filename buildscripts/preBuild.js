@@ -13,8 +13,15 @@ const git = simpleGit()
 
 */
 
+const proceed = (message) => {
+
+	console.log(`Proceed with build${message ? ': ' + message : ''}`)
+
+}
+
 const go = async () => {
 
+	
 	try {
 
 		let current = await git.log({
@@ -22,35 +29,36 @@ const go = async () => {
 		})
 		
 		if(!current || !current.latest || !current.latest.hash){
-			throw new Error('no current revision found')
+			proceed('no current revision found')
 		}
-
-		let lastBuilt
 
 		try {
 
-			lastBuilt = await fs.readFile('.lastbuilt', 'binary')
+			let lastBuilt = await fs.readFile('.lastbuilt', 'binary')
+
+			if(!lastBuilt || current.latest.hash == lastBuilt){
+				console.log(`Build not required: revision ${lastBuilt} is current`)
+				process.exit(9) // use special exit code to signify exiting without an error. cant use IPC due to windows bug :(
+			}else{
+				proceed('code has been updated')
+			}
 			
+
 		}
 
 		catch (err){
 
-			throw new Error('.lastbuilt does not exist')
+			proceed('.lastbuilt does not exist')
 
 		}
 
-		if(!lastBuilt || current.latest.hash == lastBuilt){
-			console.log(`Build not required: revision ${lastBuilt} is current`)
-			process.exit(1)
-		}else{
-			throw new Error('code has been updated')
-		}
 
 	}
 
 	catch (err){
 
-		console.log('Proceed with build:', err.message)
+		console.log('Build failed:', err.message)
+		process.exit(1)
 
 	}
 
