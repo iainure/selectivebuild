@@ -50,7 +50,7 @@ const go = async () => {
 
 	catch (err){
 
-		console.log('Proceed with build:', err)
+		console.log('Proceed with build:', err.message)
 
 	}
 
